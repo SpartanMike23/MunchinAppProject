@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private Button decrement;
     private EditText editPowerLvl;
     private String powerLvl;
+    private Button clearBtn;
     private final TextWatcher mTextEditorWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         increment = (Button) findViewById(R.id.increment);
         decrement = (Button) findViewById(R.id.decrement);
         editPowerLvl = (EditText) findViewById(R.id.powerLvlEdit);
+        clearBtn = (Button) findViewById(R.id.clearBtn);
 
         editPowerLvl.addTextChangedListener(mTextEditorWatcher);
 
@@ -66,6 +68,14 @@ public class MainActivity extends AppCompatActivity {
                 if (valueFrmPower < 0) {
                     valueFrmPower = 0;
                 }
+                editPowerLvl.setText(Integer.toString(valueFrmPower));
+            }
+        });
+
+        clearBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                valueFrmPower = 0;
                 editPowerLvl.setText(Integer.toString(valueFrmPower));
             }
         });

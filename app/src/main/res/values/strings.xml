@@ -2,7 +2,7 @@
     <string name="app_name">Munchkin App</string>
     <string name="increment">+</string>
     <string name="decrement">-</string>
-
+    <string name="clearBtn_text">Clear</string>
     <string name="title">Munchkin!</string>
     <string name="title2">Power Level Tracker</string>
 
