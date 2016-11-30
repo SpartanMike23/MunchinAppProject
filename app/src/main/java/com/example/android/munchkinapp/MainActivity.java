@@ -18,15 +18,22 @@ public class MainActivity extends AppCompatActivity {
     private EditText editPowerLvl;
     private String powerLvl;
     private Button clearBtn;
+
+    /**
+     * TextWatcher Class created for user input on the EditText view
+     * Methods include beforeTextChanged, onTextChanged, afterTextChanged
+     *
+     * @param charSequence length of user input
+     * @param editable notification when changed
+     */
     private final TextWatcher mTextEditorWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
         }
 
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+            //created to prevent crash if user inputs a no length number.
             if (charSequence.length() == 0) {
                 return;
             }
@@ -46,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Global variable instances created.
         increment = (Button) findViewById(R.id.increment);
         decrement = (Button) findViewById(R.id.decrement);
         editPowerLvl = (EditText) findViewById(R.id.powerLvlEdit);
