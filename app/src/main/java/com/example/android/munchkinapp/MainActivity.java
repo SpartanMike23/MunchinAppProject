@@ -1,5 +1,7 @@
 package com.example.android.munchkinapp;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -18,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText editPowerLvl;
     private String powerLvl;
     private Button clearBtn;
+    private Button rulesBtn;
 
     /**
      * TextWatcher Class created for user input on the EditText view
@@ -58,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         decrement = (Button) findViewById(R.id.decrement);
         editPowerLvl = (EditText) findViewById(R.id.powerLvlEdit);
         clearBtn = (Button) findViewById(R.id.clearBtn);
+        rulesBtn = (Button) findViewById(R.id.rulesBtn);
 
         editPowerLvl.addTextChangedListener(mTextEditorWatcher);
 
@@ -85,6 +89,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 valueFrmPower = 0;
                 editPowerLvl.setText(Integer.toString(valueFrmPower));
+            }
+        });
+
+        rulesBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent.setData(Uri.parse("http://www.worldofmunchkin.com/rules/munchkin_rules.pdf"));
+                startActivity(intent);
             }
         });
 
