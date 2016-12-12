@@ -92,13 +92,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //TODO Button Intent to start browser
         rulesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                intent.setData(Uri.parse("http://www.worldofmunchkin.com/rules/munchkin_rules.pdf"));
+                intent.setData(Uri.parse("https://www.google.com/"));
                 startActivity(intent);
             }
         });
